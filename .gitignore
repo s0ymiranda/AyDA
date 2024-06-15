@@ -1,0 +1,10 @@
+# Visual Studio Code
+.vscode/
+
+# Build directories
+bin/
+
+# Executables
+/main
+*.o
+*.d
