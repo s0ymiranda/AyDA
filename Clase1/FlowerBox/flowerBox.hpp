@@ -18,10 +18,10 @@ ull compute_max_height(const vector<ull>& flowerbox, long cell)
     return max(r1,r2);
 }
 
-ull compute_max_height_memo(const vector<ull>& flowerbox, long cell, unordered_map<long, ull>& memo) 
+ull compute_max_height_memo(const vector<ull>& flowerbox, long cell, unordered_map<long, ull>& memo)
 {
-    
-    if (cell < 0) 
+
+    if (cell < 0)
     {
         return 0;
     }
@@ -33,20 +33,20 @@ ull compute_max_height_memo(const vector<ull>& flowerbox, long cell, unordered_m
 
         memo[cell] = max(r1, r2);
     }
-   
+
     return memo[cell];
 }
 
-ull compute_max_height_bottom_up(const vector<ull>& flowerbox) 
+ull compute_max_height_bottom_up(const vector<ull>& flowerbox)
 {
     ull r1 = 0;
-    ull r2 = 0;   
+    ull r2 = 0;
     for(ull v: flowerbox)
     {
         ull r = max(v + r1, r2);
         r1 = r2;
         r2 = r;
-    } 
+    }
     return r2;
 }
 

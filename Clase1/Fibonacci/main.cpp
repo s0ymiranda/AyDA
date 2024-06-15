@@ -1,6 +1,6 @@
 #include "fibonacci.hpp"
 int main(int argc, char *argv[]) {
-    
+
     int n = 1;
 
     if (argc > 1) {
