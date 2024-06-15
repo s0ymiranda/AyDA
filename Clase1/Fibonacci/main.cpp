@@ -1,6 +1,16 @@
 #include "fibonacci.hpp"
-int main() {
+int main(int argc, char *argv[]) {
+    
     int n = 1;
+
+    if (argc > 1) {
+        try {
+            n = std::stoi(argv[1]);
+        } catch (const std::invalid_argument& e) {
+            std::cerr << "Invalid argument: " << argv[1] << std::endl;
+            return 1;
+        }
+    }
 
     // Timing the Basic Recursive Algorithm
     auto start = std::chrono::high_resolution_clock::now();
