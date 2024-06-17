@@ -2,7 +2,7 @@
 
 int main()
 {
-    std::vector<ui> coins = {1, 19, 5, 12};
+    std::vector<ui> coins = {1, 5, 12, 19};
     ui target = 16;
 
     // Crónica para el algoritmo recursivo básico
