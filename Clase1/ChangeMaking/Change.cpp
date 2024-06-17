@@ -12,7 +12,6 @@ struct PairHash
     }
 };
 
-
 unsigned int change_mem_aux(const std::vector<unsigned int>& monedas, unsigned int cambio, size_t i, std::unordered_map<std::pair<size_t,unsigned int>, unsigned int, PairHash> & memory)
 {
     auto found = memory.find(std::make_pair(i, cambio));
