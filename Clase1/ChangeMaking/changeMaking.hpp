@@ -43,7 +43,7 @@ ui changeMaking(const std::vector<ui>& coins, ui target, size_t idx)
     {
         leave = changeMaking(coins, target, idx - 1);
     }
-
+    std::cout<<take <<" " <<leave <<std::endl;
     return std::min(take, leave);
 }
 
