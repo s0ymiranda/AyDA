@@ -12,10 +12,17 @@ enum class Action
     DOWN
 };
 
+static constexpr int NUM_STATES{15};
+static constexpr int NUM_ACTIONS{4};
+static constexpr float GAMMA{0.9};
+
 using State = unsigned long;
-const float PROB = float(1)/float(3);
+static constexpr float PROB = float(1)/float(3);
+
                          //State //Probability //Reward
 using Transition = std::tuple<State, float, float>;
+
+//Environment
 
 const std::unordered_map<State, std::unordered_map<Action, std::vector<Transition>>>& p =
 {

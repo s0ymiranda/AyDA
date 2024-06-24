@@ -1,30 +1,34 @@
 #include "utils.hpp"
+void MDPValueIteration();
 int main()
 {
+    MDPValueIteration();
+    return 0;
+}
+
+void MDPValueIteration()
+{
     float delta = INFINITY;
-    const unsigned short num_states = 15;
-    const unsigned short num_actions = 4;
-    const float gamma = 0.9;
     const float theta = 0.1;
     const unsigned short num_iterations = 100;
 
-    std::vector<float> values(num_states, 0.0), policy(num_states, 0.0);
+    std::vector<float> values(NUM_STATES, 0.0), policy(NUM_STATES, 0.0);
 
     for (size_t stop = 0; delta >= theta && stop < num_iterations; stop++)
     {
         delta = 0;
 
-        for (size_t s = 0; s < num_states; s++)
+        for (size_t s = 0; s < NUM_STATES; s++)
         {
             float v = values[s];
-            std::vector<float> q(num_actions,0);
+            std::vector<float> q(NUM_ACTIONS,0);
 
-            for (size_t a = 0; a < num_actions; a++)
+            for (size_t a = 0; a < NUM_ACTIONS; a++)
             {
                 for (size_t s_prime = 0; s_prime < p.at(s).at(Action(a)).size(); s_prime++)
                 {
 
-                    q[a] += std::get<1>((p.at(s)).at(Action(a))[s_prime])*(std::get<2>((p.at(s)).at(Action(a))[s_prime]) + gamma * values[std::get<0>((p.at(s)).at(Action(a))[s_prime])]);
+                    q[a] += std::get<1>((p.at(s)).at(Action(a))[s_prime])*(std::get<2>((p.at(s)).at(Action(a))[s_prime]) + GAMMA * values[std::get<0>((p.at(s)).at(Action(a))[s_prime])]);
                 }
             }
 
@@ -44,10 +48,9 @@ int main()
         }
     }
 
-    for (size_t s = 0; s < num_states; s++)
+    for (size_t s = 0; s < NUM_STATES; s++)
     {
         std::cout << "State " << s << " value: " << values[s] << " policy: " << policy[s] << std::endl;
     }
 
-    return 0;
 }
