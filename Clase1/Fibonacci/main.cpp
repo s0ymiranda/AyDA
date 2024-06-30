@@ -26,9 +26,6 @@ int main(int argc, char *argv[]) {
     duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
     std::cout << "Time taken by Recursive with Memoization: " << duration.count() << " nanoseconds" << std::endl;
 
-    // Clear the memoization cache for the next run
-    memo.clear();
-
     // Timing the Bottom-Up Algorithm
     start = std::chrono::high_resolution_clock::now();
     std::cout << "Fibonacci(" << n << ") = " << fibonacciBottomUp(n) << std::endl;
