@@ -96,10 +96,10 @@ const HiddenMarkovModel Data::weather_recognition_hmm
 
 const vector<string> Data::sample_weather_1{ "temp_hot", "not_clear_sky", "humidity"};
 const vector<string> Data::sample_weather_2{ "temp_hot", "not_clear_sky", "humidity", "temp_hot", "humidity" };
-const vector<string> Data::sample_weather_3{"humidity", "not_clear_sky", "humidity", "temp_hot", "not_clear_sky", "humidity" };
+const vector<string> Data::sample_weather_3{"humidity", "not_clear_sky", "humidity", "temp_hot", "humidity" };
 const vector<string> Data::expected_dynamic_programming_weather_1{ "Sunny" ,"Cloudy", "Cloudy"};
 const vector<string> Data::expected_dynamic_programming_weather_2{ "Sunny", "Cloudy", "Cloudy", "Cloudy", "Cloudy" };
-const vector<string> Data::expected_dynamic_programming_weather_3{ "Rainy", "Rainy", "Rainy", "Cloudy", "Cloudy","Cloudy"};
+const vector<string> Data::expected_dynamic_programming_weather_3{ "Rainy", "Rainy", "Rainy", "Cloudy","Cloudy"};
 
 
 void test_dynamic_programming_1()
@@ -118,7 +118,7 @@ void test_dynamic_programming_2()
 
 void test_dynamic_programming_3()
 {
-    cout << "Given the samples " << Data::sample_weather_3 << ", when the function dynamic_programming is called, then it should return " << Data::expected_dynamic_programming_weather_2 << endl;
+    cout << "Given the samples " << Data::sample_weather_3 << ", when the function dynamic_programming is called, then it should return " << Data::expected_dynamic_programming_weather_3 << endl;
     auto result = dynamic_programming(Data::weather_recognition_hmm, Data::sample_weather_3);
     assert_equal(result, Data::expected_dynamic_programming_weather_3);
 }

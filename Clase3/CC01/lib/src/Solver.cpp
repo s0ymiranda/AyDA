@@ -1,29 +1,6 @@
 #include <Solver.hpp>
 #include <limits>
 
-std::vector<std::string> greedy(const HiddenMarkovModel& hmm, const std::vector<std::string>& observations) noexcept
-{
-    std::vector<std::string> result{};
-    std::transform(
-        observations.begin(),
-        observations.end(),
-        back_inserter(result),
-        [&hmm] (const std::string& obs)
-        {
-            return *max_element(
-                hmm.possible_states.begin(),
-                hmm.possible_states.end(), 
-                [&hmm, &obs] (const std::string& s1, const std::string& s2)
-                {
-                    return hmm.emission_probabilities.at(s1).at(obs) < hmm.emission_probabilities.at(s2).at(obs);
-                }
-            );
-        }
-    );
-
-    return result;
-}
-
 std::vector<std::string> dynamic_programming(const HiddenMarkovModel& hmm, const std::vector<std::string>& observations) noexcept
 {
     // Grid of probabilities with previous states.
