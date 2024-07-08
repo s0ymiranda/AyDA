@@ -76,13 +76,13 @@ int main()
 
     i = 0;
 
-    Designar::Graph<Designar::nat_t> hexagonal_grid = Designar::build_grid<Designar::Graph<Designar::nat_t>>(4, 4, Designar::GridType::TRIANGULAR,
+    Designar::Graph<Designar::nat_t> hexagonal_grid = Designar::build_grid<Designar::Graph<Designar::nat_t>>(4, 4, Designar::GridType::HEXAGONAL,
                                       [&i](Designar::Graph<Designar::nat_t>::Node *p, Designar::nat_t, Designar::nat_t)
                                       {
                                         p->get_info() = ++i;
                                       });
 
-    Designar::DotGraph<Designar::Graph<Designar::nat_t>>().write_graph(hexagonal_grid, "triangular-grid.dot");
+    Designar::DotGraph<Designar::Graph<Designar::nat_t>>().write_graph(hexagonal_grid, "hexagonal-grid.dot");
 
     i = 0;
 

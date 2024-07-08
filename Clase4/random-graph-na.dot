@@ -1,0 +1,24 @@
+// File generated automatically by write_graph in DotGraph
+
+graph
+{
+  rankdir = LR;
+
+  // Without graph attributes
+
+  // Nodes 
+
+  0[label = "1"];
+  1[label = "2"];
+  2[label = "3"];
+  3[label = "4"];
+  4[label = "5"];
+
+  // Arcs 
+
+  4--2[label = ""];
+  0--3[label = ""];
+  3--4[label = ""];
+  0--1[label = ""];
+  1--4[label = ""];
+}
