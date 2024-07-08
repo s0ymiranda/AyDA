@@ -4,7 +4,7 @@ FLAGS       = -DDEBUG -g -O0
 ########
 # DeSiGNAR path.
 # Replace the value with your own.
-DSG         = /home/gerardorosetti/semestre_b2024/DeSiGNAR
+DSG         =  /home/miranda/AyDA-B2023/DeSiGNAR
 ########
 
 # Demo

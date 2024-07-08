@@ -1,5 +1,6 @@
 #include <iostream>
 #include <graphalgorithms.hpp>
+#include <buildgraph.hpp>
 
 int main()
 {
@@ -24,7 +25,6 @@ int main()
 
     Designar::DotGraph<Designar::Graph<char>>().write_graph(char_graph, "graph.dot");
 
-    //
 
     Designar::Digraph<char> char_digraph;
 
@@ -46,6 +46,57 @@ int main()
     });
 
     Designar::DotGraph<Designar::Digraph<char>>().write_graph(char_digraph, "digraph.dot");
+
+
+
+
+    Designar::nat_t i = 0;
+
+    Designar::Graph<Designar::nat_t> rgna = Designar::random_graph<Designar::Graph<Designar::nat_t>>(5, 7, [&i](Designar::Graph<Designar::nat_t>::Node *p)
+                                            { 
+                                                p->get_info() = ++i; 
+                                            });
+
+    Designar::DotGraph<Designar::Graph<Designar::nat_t>>().write_graph(rgna, "random-graph-na.dot");
+
+    i = 0;
+
+    Designar::Graph<Designar::nat_t> fg = Designar::full_graph<Designar::Graph<Designar::nat_t>>(5, [&i](Designar::Graph<Designar::nat_t>::Node *p)
+                                                { 
+                                                    p->get_info() = ++i; 
+                                                });
+    
+    Designar::DotGraph<Designar::Graph<Designar::nat_t>>().write_graph(fg, "full-graph.dot");
+
+    i = 0;
+
+    Designar::Digraph<Designar::nat_t> fdg = Designar::full_graph<Designar::Digraph<Designar::nat_t>>(5, [&i](Designar::Digraph<Designar::nat_t>::Node *p)
+                                                { 
+                                                    p->get_info() = ++i; 
+                                                });
+    
+    Designar::DotGraph<Designar::Digraph<Designar::nat_t>>().write_graph(fdg, "full-digraph.dot");
+    
+    i = 0;
+
+    Designar::Graph<Designar::nat_t> hexagonal_grid = Designar::build_grid<Designar::Graph<Designar::nat_t>>(4, 4, Designar::GridType::TRIANGULAR,
+                                      [&i](Designar::Graph<Designar::nat_t>::Node *p, Designar::nat_t, Designar::nat_t)
+                                      {
+                                        p->get_info() = ++i;
+                                      });
+
+    Designar::DotGraph<Designar::Graph<Designar::nat_t>>().write_graph(hexagonal_grid, "triangular-grid.dot");
+
+    
+    i = 0;
+
+    Designar::Graph<Designar::nat_t> rectangular_grid = Designar::build_grid<Designar::Graph<Designar::nat_t>>(4, 4, Designar::GridType::RECTANGULAR,
+                                      [&i](Designar::Graph<Designar::nat_t>::Node *p, Designar::nat_t, Designar::nat_t)
+                                      {
+                                        p->get_info() = ++i;
+                                      });
+
+    Designar::DotGraph<Designar::Graph<Designar::nat_t>>().write_graph(rectangular_grid, "rectangular-grid.dot");
 
     return EXIT_SUCCESS;
 }
