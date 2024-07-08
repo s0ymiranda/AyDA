@@ -4,11 +4,11 @@ FLAGS       = -DDEBUG -g -O0
 ########
 # DeSiGNAR path.
 # Replace the value with your own.
-DSG         = /home/miranda/AyDA-B2023/DeSiGNAR
+DSG         = /home/gerardorosetti/semestre_b2024/DeSiGNAR
 ########
 
 # Demo
-DEMO        = demo-1
+DEMO        = graphs
 INCLUDEPATH = -I$(DSG)/include
 LIBLINK     = -L$(DSG)/lib -lDesignar -lpthread
 

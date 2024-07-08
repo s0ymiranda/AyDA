@@ -1,0 +1,23 @@
+// File generated automatically by write_graph in DotGraph
+
+digraph
+{
+  rankdir = LR;
+
+  // Without graph attributes
+
+  // Nodes 
+
+  0[label = "a"];
+  1[label = "b"];
+  2[label = "c"];
+  3[label = "d"];
+  4[label = "e"];
+
+  // Arcs 
+
+  0->1[label = ""];
+  0->2[label = ""];
+  2->3[label = ""];
+  3->0[label = ""];
+}
