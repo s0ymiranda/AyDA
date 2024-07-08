@@ -4,7 +4,7 @@ FLAGS       = -DDEBUG -g -O0
 ########
 # DeSiGNAR path.
 # Replace the value with your own.
-DSG         =  /home/miranda/AyDA-B2023/DeSiGNAR
+DSG         =  /home/gerardorosetti/semestre_b2024/DeSiGNAR
 ########
 
 # Demo
@@ -15,6 +15,10 @@ LIBLINK     = -L$(DSG)/lib -lDesignar -lpthread
 $(DEMO): $(DEMO).cpp
 	$(CXX) $(FLAGS) $(INCLUDEPATH) $< -o $@ $(LIBLINK)
 
+# Ejecutar el programa
+run: $(DEMO)
+	./$(DEMO)
+
 .PHONY: clean
 clean:
-	$(RM) $(DEMO)
+	$(RM) $(DEMO) *.dot
