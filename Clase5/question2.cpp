@@ -76,6 +76,8 @@ int main()
 
     G.insert_arc(nodes_matrix[3][5], nodes_matrix[4][5]);
 
+    // Test Arcs
+
     // G.insert_arc(nodes_matrix[1][4], nodes_matrix[0][5]);
     // G.insert_arc(nodes_matrix[1][4], nodes_matrix[4][5]);
 
