@@ -76,15 +76,20 @@ int main()
 
     G.insert_arc(nodes_matrix[3][5], nodes_matrix[4][5]);
 
+    // G.insert_arc(nodes_matrix[1][4], nodes_matrix[0][5]);
+    // G.insert_arc(nodes_matrix[1][4], nodes_matrix[4][5]);
+
     auto result = get_shortest_path(G, nodes_matrix[0][0], nodes_matrix[3][3], nodes_matrix[4][5]);
 
     Designar::DotGraph<Designar::Graph<std::string>>().write_graph(G, "G.dot");
 
     std::cout << "El camino resultante es: " << std::endl;
 
-    result.for_each([] (Designar::Node<Designar::Graph<std::string>>* node, Designar::Arc<Designar::Graph<std::string>>* arc)
+    ushort step = 0;
+    result.for_each([&step] (Designar::Node<Designar::Graph<std::string>>* node, Designar::Arc<Designar::Graph<std::string>>* arc)
             {
-                std::cout << node->get_info() << std::endl;
+                std::cout << ((step < 10) ? "0" : "") << step << ") " << node->get_info() << std::endl;
+                ++step;
             });
 
     return EXIT_SUCCESS;
