@@ -34,10 +34,10 @@ int main()
 
     auto saborized_set = get_set(hexagonal_grid, start_node, L);
 
-    std::cout << "Saborized pastures at distance " << L << " from cow position: ";
+    std::cout << "Saborized pastures at distance " << L << " from cow position: "<< cow_position << std::endl;
     for (const auto& node : saborized_set)
     {
-        std::cout << node->get_info() << " ";
+        std::cout << node->get_info() << std::endl;
     }
 
     Designar::DotGraph<Designar::Graph<Designar::nat_t>>().write_graph(hexagonal_grid, "hexagonal-grid.dot");
