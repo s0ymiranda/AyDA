@@ -220,6 +220,8 @@ int main()
 
     auto topological_ranks_matrix = Designar::topological_ranks(flowchart);
 
+    std::cout << std::endl;
+
     ushort i = 0;
     for (auto it = topological_ranks_matrix.begin(); it != topological_ranks_matrix.end(); ++it)
     {
@@ -232,6 +234,21 @@ int main()
     }
 
     Designar::DotGraph<Designar::Digraph<std::string>>().write_graph(flowchart, "flowchart.dot");
+
+    auto df_topological_sort = Designar::df_topological_sort(flowchart);
+    auto bf_topological_sort = Designar::bf_topological_sort(flowchart);
+
+    std::cout << "\ndf_topological_sort:\n" << std::endl;
+    for (auto it = df_topological_sort.begin(); it != df_topological_sort.end(); ++it)
+    {
+        std::cout << (*it)->get_info() << std::endl;
+    }
+
+    std::cout << "\n\nbf_topological_sort:\n" << std::endl;
+    for (auto it = bf_topological_sort.begin(); it != bf_topological_sort.end(); ++it)
+    {
+        std::cout << (*it)->get_info() << std::endl;
+    }
 
     return EXIT_SUCCESS;
 }
