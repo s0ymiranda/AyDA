@@ -9,7 +9,7 @@ DSG         =  /home/gerardorosetti/semestre_b2024/DeSiGNAR
 
 # Demo
 DEMO        = spanning_tree
-DEMO2       = topological_rank
+DEMO2       = topological_ranks
 INCLUDEPATH = -I$(DSG)/include
 LIBLINK     = -L$(DSG)/lib -lDesignar -lpthread
 
