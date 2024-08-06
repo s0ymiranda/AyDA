@@ -117,6 +117,7 @@ int main()
 
     //Programacion 3
     prelations.push_back(flowchart.insert_arc(subjects[14], subjects[24]));
+    prelations.push_back(flowchart.insert_arc(subjects[14], subjects[32]));
 
     //Calculo 40
     prelations.push_back(flowchart.insert_arc(subjects[15], subjects[19]));
@@ -218,12 +219,12 @@ int main()
     //Proyecto de Grado
     //prelations.push_back(flowchart.insert_arc(subjects[43], subjects[43]));
 
-    auto topological_ranks_matrix = Designar::topological_ranks(flowchart);
+    auto topological_ranks = Designar::topological_ranks(flowchart);
 
     std::cout << std::endl;
 
     ushort i = 0;
-    for (auto it = topological_ranks_matrix.begin(); it != topological_ranks_matrix.end(); ++it)
+    for (auto it = topological_ranks.begin(); it != topological_ranks.end(); ++it)
     {
         std::cout << "Semestre " << ++i << ":" << std::endl;
         for (auto it2 = (*it).begin(); it2 != (*it).end(); ++it2)
@@ -252,3 +253,16 @@ int main()
 
     return EXIT_SUCCESS;
 }
+
+/*
+    {rank = same; 0, 1, 2, 3, 4}
+    {rank = same; 5, 6, 7, 8}
+    {rank = same; 9, 10, 11, 12, 13}
+    {rank = same; 14, 15, 16, 17, 18}
+    {rank = same; 19, 20, 21, 22, 23}
+    {rank = same; 24, 25, 26, 27, 28, 29}
+    {rank = same; 30, 31, 32, 33, 34}
+    {rank = same; 35, 36, 37, 38}
+    {rank = same; 39, 40, 41, 42}
+    {rank = same; 43}
+*/
